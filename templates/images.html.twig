@@ -1,0 +1,74 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Images | The Khamsi-Briggs Family
+{% endblock title %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/app.css">
+{% endblock stylesheets %}
+
+{% block header %}
+    <div class="header">
+        <h1>Khamsi-Briggs Family Images</h1>
+        <p>Est qui excepteur exercitation culpa commodo laborum est voluptate commodo nulla adipisicing cupidatat dolore. Tempor ullamco excepteur excepteur proident. Officia amet eu qui cillum ullamco sunt adipisicing eu veniam. Laborum enim mollit anim ad magna officia nulla incididunt non sit. Et excepteur ea labore laborum magna ea magna magna veniam aliqua. Dolor ut velit laborum esse adipisicing aute elit proident.</p>
+    </div>
+{% endblock header %}
+
+{% block body %}
+    <div class="row">
+
+    {% for key, column in columns %}
+    <div class="column">
+
+        {% for position, filename in column %}
+
+        {#<?php $id = "column{$column_key}-{$position}" ?>#}
+        {% set id = "column#{key}-#{position}" %}
+        <img src="/images/{{ filename }}" id="{{ id }}" class="image" style="width:99%" loading="lazy" alt="Amet sunt eu enim cillum proident commodo ipsum elit.">
+
+        <!-- The Modal -->
+        <div id="{{ id }}-modal" class="modal">
+
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="{{ id }}-modal-image">
+
+            <!-- Modal Caption (Image Text) -->
+            <div id="{{ id }}-caption" class="caption"></div>
+        </div>
+            <script>
+                // Get the modal
+                var modal = document.getElementById("{{ id }}-modal");
+
+                // Get the image and insert it inside the modal - use its "alt" text as a caption
+                var img = document.getElementById("{{ id }}");
+                var modalImg = document.getElementById("{{ id }}-modal-image");
+                var captionText = modal.getElementsByClassName("caption")[0];
+                img.onclick = function(){
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = 'Nulla enim anim nulla aliqua occaecat magna nostrud.';
+                }
+
+                // Get the <span> element that closes the modal
+                var span = modal.getElementsByClassName("close")[0];
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+            </script>
+        {% endfor %}
+
+    </div>  <!-- .column -->
+
+    {% endfor %}
+
+    </div> <!-- .row -->
+{% endblock body %}
+
+{% block scripts %}
+{% endblock scripts%}

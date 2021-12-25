@@ -1,0 +1,25 @@
+{
+    "name": "kevinallenbriggs/slim-fig",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "KevinAllenBriggs\\SlimFig\\": ["src/", "public/"]
+
+        }
+    },
+    "authors": [
+        {
+            "name": "Kevin Briggs",
+            "email": "kevin@kb-family.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "4.*",
+        "guzzlehttp/psr7": "^2.1",
+        "twig/twig": "^3.3"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.0"
+    }
+}
