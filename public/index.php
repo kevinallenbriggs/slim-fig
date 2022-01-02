@@ -23,7 +23,7 @@ $app->get('/', function (Request $request, Response $response, $args) {
     // sort the images into roughly equal columns
     $columns = [];
     $current_column = 1;
-    foreach ($gatherer->collect(0, 20) as $filename) {
+    foreach ($gatherer->collect(0, 500) as $filename) {
         $columns[$current_column][] = $filename;
 
         if (++$current_column > 3) {
